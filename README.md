@@ -13,17 +13,17 @@ export GDAPI_URL=http://localhost:8080/v1
 
 gdapi --help
 
-# curl -s http://localhost:8080/v1/widgets?foo=bar
-gdapi list-widget --foo=bar
+# curl -s http://localhost:8080/v1/projects?foo=bar
+gdapi list-project --foo=bar
 
-# curl -s -X POST http://localhost:8080/v1/widgets -H 'Content-Type: application/json' -d '{ "foo" : "bar" }'
-gdapi create-widget --foo=bar
+# curl -s -X POST http://localhost:8080/v1/projects -H 'Content-Type: application/json' -d '{ "foo" : "bar" }'
+gdapi create-project --foo=bar
 
-# curl -s -X PUT http://localhost:8080/v1/widgets/42 -H 'Content-Type: application/json' -d '{ "foo" : "bar" }'
-gdapi update-widget --id=42 --foo=bar
+# curl -s -X PUT http://localhost:8080/v1/projects/42 -H 'Content-Type: application/json' -d '{ "foo" : "bar" }'
+gdapi update-project --id=42 --foo=bar
 
-# curl -s -X DELETE http://localhost:8080/v1/widgets/42
-gdapi delete-widget --id=42
+# curl -s -X DELETE http://localhost:8080/v1/projects/42
+gdapi delete-project --id=42
 ```
 
 ### Environment variables
@@ -53,24 +53,24 @@ client = gdapi.Client(url='http://localhost:8080/v1',
                       access_key='4C27AB31828A4E469C09',
                       secret_key='fDxEzyxdFMWbmugstPpzykj2qA84Tn9DPDiAc3Sb')
 
-# curl -s http://localhost:8080/v1/widgets?foo=bar
+# curl -s http://localhost:8080/v1/projects?foo=bar
 client.list_widget(foo='bar')
 
-# curl -s -X POST http://localhost:8080/v1/widgets -H 'Content-Type: application/json' -d '{ "foo" : "bar" }'
+# curl -s -X POST http://localhost:8080/v1/projects -H 'Content-Type: application/json' -d '{ "foo" : "bar" }'
 client.create_widget(foo='bar')
 
-# curl -s -X PUT http://localhost:8080/v1/widgets/42 -H 'Content-Type: application/json' -d '{ "foo" : "bar" }'
-widget = client.by_id_widget('42')
-client.update(widget, foo='bar')
+# curl -s -X PUT http://localhost:8080/v1/projects/42 -H 'Content-Type: application/json' -d '{ "foo" : "bar" }'
+project = client.by_id_project('42')
+client.update(project, foo='bar')
 
 # curl -s -X DELETE http://localhost:8080/v1/widgets/42
-widget = client.by_id_widget('42')
-client.delete(widget)
+project = client.by_id_widget('42')
+client.delete(project)
 
 # Links
 # curl -s -X DELETE http://localhost:8080/v1/widgets/42/foobars
-widget = client.by_id_widget('42')
-widget.foobars()
+project = client.by_id_project('42')
+project.foobars()
 ```
 
 # Contact
